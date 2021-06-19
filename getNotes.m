@@ -75,7 +75,7 @@ in
 
         newAuthQuery = Record.Combine({
             authQuery,
-            [limit_rows ="500"],
+            [limit_rows ="500000000"],
             [limit_offset=limits],
             [type="lead"]}),
 
