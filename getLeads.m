@@ -75,7 +75,7 @@ in
         delOther = Table.SelectColumns(toTable,{"Value"}),
         expand = Table.ExpandRecordColumn(delOther, "Value", {"leads"}, {"leads"}),
         expand1 = Table.ExpandListColumn(expand, "leads"),
-        expand2 = Table.ExpandRecordColumn(expand1, "leads", {"id", "name", "date_create", "created_user_id", "last_modified", "account_id", "price", "responsible_user_id", "linked_company_id", "group_id", "pipeline_id", "date_close", "closest_task", "loss_reason_id", "deleted", "tags", "status_id", "custom_fields", "main_contact_id"}, {"id", "name", "date_create", "created_user_id", "last_modified", "account_id", "price", "responsible_user_id", "linked_company_id", "group_id", "pipeline_id", "date_close", "closest_task", "loss_reason_id", "deleted", "tags", "status_id", "custom_fields", "main_contact_id", "ТЕРАПЕВТ", "ДАТА_ТЕРАПИИ", "ДОПЛАТА"}),
+        expand2 = Table.ExpandRecordColumn(expand1, "leads", {"id", "name", "date_create", "created_user_id", "last_modified", "account_id", "price", "responsible_user_id", "linked_company_id", "group_id", "pipeline_id", "date_close", "closest_task", "loss_reason_id", "deleted", "tags", "status_id", "custom_fields", "main_contact_id"}, {"id", "name", "date_create", "created_user_id", "last_modified", "account_id", "price", "responsible_user_id", "linked_company_id", "group_id", "pipeline_id", "date_close", "closest_task", "loss_reason_id", "deleted", "tags", "status_id", "custom_fields", "main_contact_id"}),
 
         //Перевод дат из timestamp
         timestampDateCreate = Table.AddColumn(expand2, "Date_create", each if [date_create] = 0 then null else #datetime(1970,1,1,0,0,0)+#duration(0,0,0,[date_create])),
